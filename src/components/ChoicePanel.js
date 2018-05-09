@@ -1,25 +1,32 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ChoiceButton from './ChoiceButton.js'
 import './ChoicePanel.css'
 
-const ChoicePanel = () => {
-  const choiceButtons = new Array(7);
+class ChoicePanel extends Component {
+  constructor(props) {
+    super(props)
 
-  for(let i=0; i<7; i++) {
-    choiceButtons.push(
-      <ChoiceButton columnNumber={i} />
-    );
+    this.handleChoiceSelect = this.handleChoiceSelect.bind(this)
+  }
+  handleChoiceSelect(columnChoice) {
+    this.props.handleSelection(columnChoice);
   }
 
-  // choiceButtonClicked() {
-  //
-  // }
+  render() {
 
-  return (
-    <div className="choice-buttons">
-      {choiceButtons}
-    </div>
-  )
+    const choiceButtons = new Array(7);
+    for(let i=0; i<7; i++) {
+      choiceButtons.push(
+        <ChoiceButton columnNumber={i} key={i} handleClick={this.handleChoiceSelect}/>
+      );
+    }
+
+    return (
+      <div className="choice-buttons">
+        {choiceButtons}
+      </div>
+    )
+  }
 };
 
 export default ChoicePanel;

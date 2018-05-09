@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-  const ChoiceButton = ({columnNumber}) => {
+class ChoiceButton extends Component {
+  constructor(props) {
+    super(props)
+    this.onChoiceButtonClicked = this.onChoiceButtonClicked.bind(this)
+  }
+
+  onChoiceButtonClicked(event) {
+    this.props.handleClick(event.target.className)
+  }
+
+  render() {
 
     return (
-        <button type="button" className={columnNumber}>{columnNumber +1 }</button>
+        <button type="button" className={this.props.columnNumber} onClick={this.onChoiceButtonClicked}>{this.props.columnNumber +1 }</button>
     )
   }
+}
 
 export default ChoiceButton;

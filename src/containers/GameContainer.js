@@ -10,8 +10,9 @@ class GameContainer extends Component {
   constructor(props){
     super(props);
     this.state = {
-      activePlayer: "yellow",
-      boardState: setupBoard()
+      activePlayer: "Yellow",
+      boardState: setupBoard(),
+      columnSelected: null
     }
 
     this.columnButtonClick = this.columnButtonClick.bind(this);
@@ -24,10 +25,10 @@ class GameContainer extends Component {
   }
 
   switchPlayer(){
-    if(this.state.activePlayer === "yellow"){
-      this.setState({activePlayer: "red"})
+    if(this.state.activePlayer === "Yellow"){
+      this.setState({activePlayer: "Red"})
     } else {
-      this.setState({activePlayer: "yellow"})
+      this.setState({activePlayer: "Yellow"})
     }
   }
 
@@ -35,7 +36,7 @@ class GameContainer extends Component {
     return (
       <div>
         <PlayerTurnComponent activePlayer={this.state.activePlayer}/>
-        <ChoicePanel columnButtonClick={this.columnButtonClick}/>
+        <ChoicePanel handleSelection={this.columnButtonClick} />
         <GameBoard boardState={this.state.boardState} activePlayer={this.state.activePlayer} />
       </div>
     )

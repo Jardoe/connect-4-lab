@@ -1,7 +1,3 @@
-import React from 'react';
-
-// const GameLogic = () => {
-
 export const setupBoard = function () {
     const gameBoard= []
 
@@ -22,25 +18,12 @@ export const setupBoard = function () {
 export const tokenDrop = function(columnChoice, playerColour, gameBoard) {
   for (let i=5; i>=0; i--) {
     if(gameBoard[i][columnChoice].state === 'empty') {
-      console.log(gameBoard[i][columnChoice]);
-
       gameBoard[i][columnChoice].state = playerColour;
-      console.log(gameBoard[i][columnChoice]);
-
-      return;
+      return gameBoard;
     }
   }
-  return gameBoard;
 }
-// }
 
-
-// export default GameLogic;
-
-// tokenDrop(4, "yellow");
-// tokenDrop(4, "red");
-//
-// console.log(gameBoard);
 
 // const checkGameState = function() {
 //   if (checkTLtoBR() || checkTtoB() || checkTRtoBL() || checkLtoR()) {

@@ -19,7 +19,7 @@ export const tokenDrop = function(columnChoice, playerColour, gameBoard) {
   for (let i=5; i>=0; i--) {
     if(gameBoard[i][columnChoice].state === 'empty') {
       gameBoard[i][columnChoice].state = playerColour;
-      return gameBoard;
+      return [gameBoard, i, columnChoice];
     }
   }
 }

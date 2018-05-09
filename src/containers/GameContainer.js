@@ -19,7 +19,8 @@ class GameContainer extends Component {
   }
 
   columnButtonClick(columnNumber){
-    const newGameState = tokenDrop(columnNumber, this.state.activePlayer, this.state.boardState);
+    const results = tokenDrop(columnNumber, this.state.activePlayer, this.state.boardState);
+    const newGameState = results[0];
     this.setState({boardState: newGameState});
     this.switchPlayer();
   }
